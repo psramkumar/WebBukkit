@@ -15,6 +15,8 @@ if(!file_exists("pages/$p.php"))
 	$p = 'dashboard';
 if(!$_SESSION['user'])
 	$p = 'login';
+if(!file_exists("config.php"))
+	$p = 'install';
 
 require($include . 'header.php');
 require("pages/$p.php");
