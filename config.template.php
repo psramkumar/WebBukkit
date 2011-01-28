@@ -8,7 +8,7 @@ $include = $wwwdir . '/include/';
 
 $minecraft['bin'] = 'bin';
 
-$minecraft['servername'] = "Example Server";
+$minecraft['name'] = "Example Server";
 
 $mysql['server'] = 'localhost';
 

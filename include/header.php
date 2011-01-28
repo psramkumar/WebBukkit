@@ -12,7 +12,7 @@
 <div id="Container">
 
   <div id="Header">
-  		<div id="Logo">BukkitAdmin</div>
+  		<div id="Logo">BukkitAdmin - <?php echo $minecraft['name']; ?></div>
   		<ul id="Navigation">
 <?php if(!$_SESSION){ ?>			<li<?php if($p == 'login') echo ' class="active"';?>><a href="<?php echo $rooturl; ?>login">Login</a></li>
 <?php } else { ?>			<li<?php if($p == 'dashboard') echo ' class="active"';?>><a href="<?php echo $rooturl; ?>">Dashboard</a></li>
