@@ -10,6 +10,12 @@ $minecraft['bin'] = 'bin';
 
 $minecraft['name'] = "Example Server";
 
+$minelink['server'] = 'localhost';
+
+$minelink['port'] = '6790';
+
+$minelink['pass'] = '';
+
 $mysql['server'] = 'localhost';
 
 $mysql['user'] = 'root';

@@ -4,17 +4,14 @@ class MineLink
 {
 	var $socket;
 
-	function __construct($server = 'localhost:6790')
+	function __construct($server = $minelink['server'] . ':' . $minelink['port'])
 	{
 		$this->socket = stream_socket_client($server, $erno, $erst, 5);
-		if(!$this->socket){
-		  echo '<div id="PageContent"><div class="Notice">';
-			die('Error: ' . $erst . ' (' . $erno . ')');
-			echo '</div></div>';
-		}else
-		{
-			$this->cmd('pass pass');
-		}
+
+		if(!$this->socket)
+			die('<div id="PageContent"><div class="Notice">Error: ' . $erst . ' (' . $erno . ')</div></div>');
+		else
+			$this->cmd('pass ' . $minelink['pass']);
 	}
 	
 	function cmd($cmd)
