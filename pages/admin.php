@@ -51,12 +51,12 @@
 		<fieldset class="sub_fieldset">
 			<legend>Manage</legend>
 <?php
-if($uri[2] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
+if($uri[3] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
 {
 	$user = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE `id`='$pc[uid]'"));
 ?>
 	<h4>Users - Manage - <?php echo $user['user']; ?></h4>
-		<form method="post" action="<?php echo $rooturl; ?>admin/edit">
+		<form method="post" action="<?php echo $rooturl; ?>admin/users/edit">
 			<p>Username: <input type="text" name="user" value="<?php echo $user['user']; ?>"></p>
 			<p>Password: <input type="password" name="pass"></p>
 			<p>Password Again: <input type="password" name="pass"></p>
@@ -89,7 +89,7 @@ if($uri[2] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
 		{
 			echo '<tr>' . "\n";
 			echo '<td>'.$user['user'].'</td>' . "\n";
-			echo '<td><form method="post" action="'.$rooturl.'admin/edit"><input type="hidden" name="uid" value="'.$user['id'].'"><input class="inline" type="submit" name="edituser" value="Edit"></form></td>' . "\n";
+			echo '<td><form method="post" action="'.$rooturl.'admin/users/edit"><input type="hidden" name="uid" value="'.$user['id'].'"><input class="inline" type="submit" name="edituser" value="Edit"></form></td>' . "\n";
 			echo '<td>'.$user['lastlogin'].'</td>' . "\n";
 			echo '<td><form method="post"><input type="hidden" name="user" value="'.$user['id'].'"><input class="inline" type="submit" name="delete" value="Delete"></form></td>' . "\n";
 			echo '</tr>' . "\n";
