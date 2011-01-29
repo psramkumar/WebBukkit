@@ -4,7 +4,7 @@ RewriteEngine On
 
 ## !! REPLACE THIS WITH YOUR ROOT URL !! ##
 
-RewriteBase /
+RewriteBase /dev/
 
 ## !! REPLACE THIS WITH YOUR ROOT URL !! ##
 
