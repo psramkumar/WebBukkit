@@ -4,7 +4,7 @@ RewriteEngine On
 
 ## !! REPLACE THIS WITH YOUR ROOT URL !! ##
 
-RewriteBase /dev/
+RewriteBase /design/BukkitAdmin/
 
 ## !! REPLACE THIS WITH YOUR ROOT URL !! ##
 

@@ -25,7 +25,6 @@
 			</div>
 		</form>
 <?php } else { ?>
-		<h4>Groups</h4>
 		<table width="100%" style="text-align: Left; -webkit-font-smoothing: antialiased;" cellpadding="0" cellspacing="0">
   			<tr>
 				<th width="300px">Group Name</th>

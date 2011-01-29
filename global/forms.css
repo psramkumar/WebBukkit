@@ -9,6 +9,7 @@ fieldset{
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
+	padding: 10px;
 }
 
 legend{
@@ -16,6 +17,10 @@ legend{
   padding-bottom: 5px;
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
+}
+
+.sub_fieldset ledgend {
+  padding-bottom: 5px;
 }
 
 .Container{
@@ -34,6 +39,10 @@ input[type=submit]{
 	line-height: 12px;
 	color: #392000;
 	float: right;
+}
+
+input[type=submit].inline{
+  float: none;
 }
 
 input[type=submit]:active{
