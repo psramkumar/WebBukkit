@@ -53,6 +53,7 @@ a:focus{
 	-moz-border-radius-bottomright: 3px;
 	border-bottom-left-radius: 3px;
 	border-bottom-right-radius: 3px;
+	min-height: 50px;
 }
  
 #Header{
@@ -93,7 +94,6 @@ a:focus{
 }
 
 #PageContent{
-	//background-color: #efefef;
 	padding: 20px;
 }
 
@@ -118,12 +118,20 @@ span{
 }
 
 .Notice{
-  	background-color: rgba(255, 191, 0, 0.1);
-    border-bottom: solid 1px #ceb290;
-    border-top: solid 1px #ceb290;
-    padding: 5px;
-    padding-left: 6px;
-    color: #5e3200;
+  background-color: rgba(255, 191, 0, 0.1);
+  border-bottom: solid 1px #ceb290;
+  border-top: solid 1px #ceb290;
+  padding: 5px;
+  padding-left: 6px;
+  color: #5e3200;
+}
+
+.Note {
+  float: left;
+  font-size: 11px;
+  padding: 6px;
+  padding-left: 0px;
+  margin-bottom: 0px;
 }
  
 /* @end */
