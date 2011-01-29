@@ -2,7 +2,7 @@
 	<fieldset>
 		<legend><a href="<?php echo $rooturl; ?>admin/server">Server</a></legend>
 <?php if($uri[2] == 'server'){ ?>
-		<fieldset>
+		<fieldset class="sub_fieldset">
 			<legend>General Settings</legend>
 			<form method="POST" action="./index.php?p=settings" onsubmit="return saveSettings()" id="Settings">	
 			<div class="Container">
@@ -18,7 +18,7 @@
 				<input id="serverPort" type ="text" value="25565" name="serverPort" id="serverPort" style="width: 100px;">
 			</div>
 		</fieldset>
-		<fieldset>
+		<fieldset class="sub_fieldset">
 			<legend>World Settings</legend>
 			<div class="Container">
 				<label for="checkPvP">PvP</label>
@@ -48,8 +48,8 @@
 	<fieldset>
 		<legend><a href="<?php echo $rooturl; ?>admin/users">Users</a></legend>
 <?php if($uri[2] == 'users'){ ?>
-		<fieldset>
-			<legend><a href="<?php echo $rooturl; ?>admin/users/manage">Manage</a></legend>
+		<fieldset class="sub_fieldset">
+			<legend>Manage</legend>
 <?php
 if($uri[2] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
 {
@@ -76,9 +76,9 @@ if($uri[2] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
 		</form>
 <?php
 }
-?>			<table class="list">
+?>		<table class="list" style="width: 100%; text-align: left;" cellpadding="0" cellspacing="0">
 			<tr>
-				<th>User</th>
+				<th style="width: 200px;">User</th>
 				<th>Manage</th>
 				<th>Last Login</th>
 				<th>Delete</th>
@@ -87,18 +87,18 @@ if($uri[2] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
 		$userdata = mysql_query("SELECT * FROM users");
 		while($user = mysql_fetch_assoc($userdata))
 		{
-			echo '			<tr>' . "\n";
-			echo '				<td>'.$user['user'].'</td>' . "\n";
-			echo '				<td><form method="post" action="'.$rooturl.'admin/edit"><input type="hidden" name="uid" value="'.$user['id'].'"><input type="submit" name="edituser" value="Edit"></form></td>' . "\n";
-			echo '				<td>'.$user['lastlogin'].'</td>' . "\n";
-			echo '				<td><form method="post"><input type="hidden" name="user" value="'.$user['id'].'"><input type="submit" name="delete" value="Delete"></form></td>' . "\n";
-			echo '			</tr>' . "\n";
+			echo '<tr>' . "\n";
+			echo '<td>'.$user['user'].'</td>' . "\n";
+			echo '<td><form method="post" action="'.$rooturl.'admin/edit"><input type="hidden" name="uid" value="'.$user['id'].'"><input class="inline" type="submit" name="edituser" value="Edit"></form></td>' . "\n";
+			echo '<td>'.$user['lastlogin'].'</td>' . "\n";
+			echo '<td><form method="post"><input type="hidden" name="user" value="'.$user['id'].'"><input class="inline" type="submit" name="delete" value="Delete"></form></td>' . "\n";
+			echo '</tr>' . "\n";
 		}
 		?>
 			</table>
 		</fieldset>
-		<fieldset>
-			<legend><a href="<?php echo $rooturl; ?>admin/users/new">New</a></legend>
+		<fieldset class="sub_fieldset">
+			<legend>New</legend>
 			<form method="post">
 				<p>
 					<label>Username</label>
@@ -109,7 +109,7 @@ if($uri[2] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
 					<input type="password" name="pass">
 				</p>
 				<p id="Toolbar">
-					<small class="left">Note: This user will not be able to login untill you set their permissions</small>
+					<small class="left">Note: This user will not be able to login until you set their permissions</small>
 					<input type="submit" name="create" value="Create">
 				</p>
 			</form>
