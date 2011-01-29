@@ -7,9 +7,11 @@ class MineLink
 	function __construct($server = 'localhost:6790')
 	{
 		$this->socket = stream_socket_client($server, $erno, $erst, 5);
-		if(!$this->socket)
+		if(!$this->socket){
+		  echo '<div id="PageContent"><div class="Notice">';
 			die('Error: ' . $erst . ' (' . $erno . ')');
-		else
+			echo '</div></div>';
+		}else
 		{
 			$this->cmd('pass pass');
 		}

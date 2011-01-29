@@ -79,7 +79,7 @@ a:focus{
   font-family: "Courier", sans-serif;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
   text-align: center;
-  margin-bottom: 20px;
+  padding-bottom: 15px;
 }
 
 #Footer a{

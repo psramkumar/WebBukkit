@@ -2,7 +2,7 @@
 	<fieldset>
 		<legend><a href="<?php echo $rooturl; ?>admin/server">Server</a></legend>
 <?php if($uri[2] == 'server'){ ?>
-		<fieldset class="sub_fieldset">
+		<fieldset class="sub_fieldset" style="margin-bottom: 20px;">
 			<legend>General Settings</legend>
 			<form method="POST" action="./index.php?p=settings" onsubmit="return saveSettings()" id="Settings">	
 			<div class="Container">
@@ -44,11 +44,12 @@
 		<input class="Button" type="submit" value="Save" name="saveSettings">
 		</form>
 <?php } else { ?>		<p>Click "Server" to configure your minecraft server</p>
-<?php } ?>	</fieldset>
+<?php } ?>
+  </fieldset>
 	<fieldset>
 		<legend><a href="<?php echo $rooturl; ?>admin/users">Users</a></legend>
 <?php if($uri[2] == 'users'){ ?>
-		<fieldset class="sub_fieldset">
+		<fieldset class="sub_fieldset" style="margin-bottom: 20px;">
 			<legend>Manage</legend>
 <?php
 if($uri[3] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
@@ -56,11 +57,14 @@ if($uri[3] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
 	$user = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE `id`='$pc[uid]'"));
 ?>
 	<h4>Users - Manage - <?php echo $user['user']; ?></h4>
-		<form method="post" action="<?php echo $rooturl; ?>admin/users/edit">
-			<p>Username: <input type="text" name="user" value="<?php echo $user['user']; ?>"></p>
-			<p>Password: <input type="password" name="pass"></p>
-			<p>Password Again: <input type="password" name="pass"></p>
-			<p>Permissions:</p>
+		<form method="post" action="<?php echo $rooturl; ?>admin/users/edit" style="padding-bottom: 20px;">
+			<p><label for="user">Username:</label> <input type="text" name="user" value="<?php echo $user['user']; ?>"></p>
+			<p><label for="pass">Password:</label> <input type="password" name="pass"></p>
+			<p><label for="pass_check">Password Again:</label> <input type="password" name="pass_check"></p>
+			
+			<br>
+			
+			<h4>Permissions</h4>
 			<ul class="permissions">
 				<li>Login: <input type="checkbox" name="perm_1"></li>
 				<li>Start/Stop Server: <input type="checkbox" name="perm_2"></li>
@@ -72,7 +76,11 @@ if($uri[3] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
 				<li>Backups: <select name="perm_7"><option>None</option><option>View</option><option>Edit</option></select></li>
 				<li>Administrator: <select name="perm_8"><option>None</option><option>View</option><option>Edit</option></select></li>
 			</ul>
-			<p><input type="hidden" name="uid" value="<?php echo $user['id']; ?>"><input type="submit" name="saveedit" value="Save & Edit">&nbsp;<span class="right">or</span>&nbsp;<input type="submit" name="saveclose" value="Save & Close"></p>
+			<div id="Toolbar">
+			  <input type="hidden" name="uid" value="<?php echo $user['id']; ?>">
+			  <input type="submit" name="saveclose" value="Save & Close" style="margin-left: 20px;">
+			  <input type="submit" name="saveedit" value="Save & Edit">
+			</div>
 		</form>
 <?php
 }
@@ -108,10 +116,10 @@ if($uri[3] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
 					<label>Password</label>
 					<input type="password" name="pass">
 				</p>
-				<p id="Toolbar">
+				<div id="Toolbar">
 					<small class="left">Note: This user will not be able to login until you set their permissions</small>
 					<input type="submit" name="create" value="Create">
-				</p>
+				</div>
 			</form>
 		<?php } else { ?>
 		<p>Click "Users" to manage BukkitAdmin's users</p>
