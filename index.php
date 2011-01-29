@@ -2,6 +2,7 @@
 
 require('./config.php');
 
+require($include . 'minelink.php');
 require($include . 'session.php');
 require($include . 'mysql.php');
 require($include . 'common.php');

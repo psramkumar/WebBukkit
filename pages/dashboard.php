@@ -1,4 +1,4 @@
-	<div id="PageContent">
+<?php $server = new MineLink(); ?>	<div id="PageContent">
 		<h4>Dashboard</h4>
 		<span>CPU <div class="ui-progress-bar"><div class="ui-progress" style="width: 20%;"></div></div></span>
 		<span>RAM <div class="ui-progress-bar"><div class="ui-progress" style="width: 80%;"></div></div></span>
@@ -11,8 +11,8 @@
 		<p>8:65PM</p><br>
 
 		<h4>Online Players</h4>
-		<p>4 Admins 2 Players &nbsp; 6/15 Players</p>
-		<p>10Bit, bdog98760, McSpider, McYukon, MonsieurApple, Plastix</p><br>
+		<p>There are currently <?php echo $server->playercount(); ?>/<?php echo $server->maxplayers(); ?> players online.</p>
+		<p><?php echo $server->players(); ?></p><br>
 	
 		<div class="Notice">
 			<p>Most pages and their content are made up, they have absolutely no function.</p>
