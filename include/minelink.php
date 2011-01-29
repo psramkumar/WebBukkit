@@ -4,9 +4,11 @@ class MineLink
 {
 	var $socket;
 
-	function __construct($server = $minelink['server'] . ':' . $minelink['port'])
+	public function __construct()
 	{
-		$this->socket = stream_socket_client($server, $erno, $erst, 5);
+		require('../config.php');
+
+		$this->socket = stream_socket_client($minelink['server'] . ':' . $minelink['port'], $erno, $erst, 5);
 
 		if(!$this->socket)
 			die('<div id="PageContent"><div class="Notice">Error: ' . $erst . ' (' . $erno . ')</div></div>');
@@ -14,7 +16,7 @@ class MineLink
 			$this->cmd('pass ' . $minelink['pass']);
 	}
 	
-	function cmd($cmd)
+	private function cmd($cmd)
 	{
 		fwrite($this->socket, $cmd . "\n");
 		$read = array($this->socket);
@@ -24,28 +26,28 @@ class MineLink
 			$return .= fgets($read[0]);
 		return $return;
 	}
-	
-	function playercount()
+
+	public function playercount()
 	{
 		$data = self::cmd('playercount');
 		$return = explode("\n", $data);
 		return trim($return[0]);
 	}
-	
-	function maxplayers()
+
+	public function maxplayers()
 	{
 		$data = self::cmd('maxplayers');
 		$return = explode("\n", $data);
 		return trim($return[0]);
 	}
-	
-	function players()
+
+	public function players()
 	{
 		$data = self::cmd('getplayers');
 		return trim($data);
 	}
-	
-	function __destruct()
+
+	private function __destruct()
 	{
 		socket_close($this->socket);
 	}
