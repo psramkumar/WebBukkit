@@ -23,6 +23,4 @@ class MineLink
 	}
 }
 
-$link = new MineLink();
-
 ?>
