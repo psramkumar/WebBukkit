@@ -11,7 +11,7 @@ class MineLink
 			die('Error: ' . $erst . ' (' . $erno . ')');
 		else
 		{
-			self::cmd('pass pass');
+			$this->cmd('pass pass');
 		}
 	}
 	
