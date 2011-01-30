@@ -1,8 +1,8 @@
 	<div id="PageContent">
 		<?php $server = new MineLink(); ?>
 		<h4>Dashboard</h4>
-		<span>CPU <div class="ui-progress-bar"><div class="ui-progress" style="width: 20%;"></div></div></span>
-		<span>RAM <div class="ui-progress-bar"><div class="ui-progress" style="width: 80%;"></div></div></span>
+		<span>CPU <div class="ui-progress-bar"><div class="ui-progress" style="width: <?php echo $server->cpu_usage();?>%;"></div></div></span>
+		<span>RAM <div class="ui-progress-bar"><div class="ui-progress" style="width: <?php echo $server->mem_usage();?>%;"></div></div></span>
 
 		<br>
 
@@ -13,7 +13,7 @@
 
 		<h4>Online Players</h4>
 		<p>There are currently <?php echo $server->playercount(); ?>/<?php echo $server->maxplayers(); ?> players online.</p>
-		<p><?php echo $server->players(); ?></p><br>
+		<p><?php foreach($server->players() as $player) $playerlist .= $player . ', '; echo substr($playerlist, 0, -2); ?></p><br>
 	
 		<div class="Notice">
 			<p>Most pages and their content are made up, they have absolutely no function.</p>
