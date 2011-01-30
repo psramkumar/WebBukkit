@@ -1,10 +1,14 @@
 	<div id="PageContent">
 <?php if($uri[2] == 'edit') { ?>
-		<h4>Editing <?php echo $uri[3]; ?></h4>
+    <?php if($uri[3] != 'new') { ?>
+		  <div class="Notice" style="margin-bottom: 20px;">Editing Group: <?php echo $uri[3]; ?></div>
+		<?php }else{ ?>
+		  <div class="Notice" style="margin-bottom: 20px;">Creating New Group</div>
+		<?php } ?>
 		<form method="POST" action="./index.php?p=groups" onsubmit="return activity()" id="Settings">
 			<div class="Container">
 				<label for="groupName">Group Name</label>
-				<input id="groupName" type ="text" value="Settler" name="serverName" style="width: 300px; margin-right: 13px;">
+				<input id="groupName" type ="text" value="<?php echo $uri[3]; ?>" name="serverName" style="width: 300px; margin-right: 13px;">
 			</div>
   
 			<br><br>
@@ -19,7 +23,7 @@
   
   	    
 			<div id="Toolbar">
-				Use '*' as a wildcard
+				<span class='Note'>Use '*' as a wildcard</span>
 				<input class="Button" id="saveButton" type="submit" value="Save" name="saveGroup">
 				<div id="pulse"></div>
 			</div>

@@ -40,13 +40,15 @@
 			<br><br>
 			<label for="netherWorld" class="inline">Nether World</label><br>
 			<input id="netherWorld" style="width: 100px;" type="text" value="No" name="netherWorld">
+			<div id="Toolbar">
+			<input type="submit" value="Save" name="saveSettings">
+			</div>
 		</fieldset>
-		<input class="Button" type="submit" value="Save" name="saveSettings">
 		</form>
 <?php } else { ?>		<p>Click "Server" to configure your minecraft server</p>
 <?php } ?>
   </fieldset>
-	<fieldset>
+	<fieldset style="margin-bottom: 0px;">
 		<legend><a href="<?php echo $rooturl; ?>admin/users">Users</a></legend>
 <?php if($uri[2] == 'users'){ ?>
 		<fieldset class="sub_fieldset" style="margin-bottom: 20px;">
@@ -56,7 +58,7 @@ if($uri[3] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
 {
 	$user = mysql_fetch_assoc(mysql_query("SELECT * FROM users WHERE `id`='$pc[uid]'"));
 ?>
-	<h4>Users - Manage - <?php echo $user['user']; ?></h4>
+	<span class="Notice" style="margin-bottom: 20px;">Editing User: <?php echo $user['user']; ?></span>
 		<form method="post" action="<?php echo $rooturl; ?>admin/users/edit" style="padding-bottom: 20px;">
 			<p><label for="user">Username:</label> <input type="text" name="user" value="<?php echo $user['user']; ?>"></p>
 			<p><label for="pass">Password:</label> <input type="password" name="pass"></p>
@@ -117,7 +119,7 @@ if($uri[3] == 'edit' && ($_POST['edituser'] || $_POST['saveedit']))
 					<input type="password" name="pass">
 				</p>
 				<div id="Toolbar">
-					<small class="left">Note: This user will not be able to login until you set their permissions</small>
+					<span class='Note'>This user will not be able to login until you set their permissions</span>
 					<input type="submit" name="create" value="Create">
 				</div>
 			</form>
