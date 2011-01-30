@@ -1,4 +1,5 @@
-<?php $server = new MineLink(); ?>	<div id="PageContent">
+	<div id="PageContent">
+		<?php $server = new MineLink(); ?>
 		<h4>Dashboard</h4>
 		<span>CPU <div class="ui-progress-bar"><div class="ui-progress" style="width: 20%;"></div></div></span>
 		<span>RAM <div class="ui-progress-bar"><div class="ui-progress" style="width: 80%;"></div></div></span>

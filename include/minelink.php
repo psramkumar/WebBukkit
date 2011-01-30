@@ -3,7 +3,8 @@
 class MineLink
 {
 	var $socket;
-
+	var $stopped;
+	
 	public function __construct()
 	{
 		require('../config.php');
@@ -11,7 +12,7 @@ class MineLink
 		$this->socket = stream_socket_client($minelink['server'] . ':' . $minelink['port'], $erno, $erst, 5);
 
 		if(!$this->socket)
-			die('<div id="PageContent"><div class="Notice">Error: ' . $erst . ' (' . $erno . ')</div></div>');
+			$this->stopped = true;
 		else
 			$this->cmd('pass ' . $minelink['pass']);
 	}
@@ -45,6 +46,11 @@ class MineLink
 	{
 		$data = self::cmd('getplayers');
 		return trim($data);
+	}
+	
+	public function server_status()
+	{
+		return $this->stopped;
 	}
 
 	private function __destruct()
