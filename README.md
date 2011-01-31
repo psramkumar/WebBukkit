@@ -1,24 +1,5 @@
-Untill I get some actual documentation in here, it's just notes.
+This is a fork off from BukkitAdmin before they went closed source. The code is not very far off, but can be studied and learned from.
 
+If you wish to use this code in any way shape or form, you should give credit to the original author of the code. (Read from the commit history, you'll figure it out)
 
-[ PERMISSIONS ]
-
-0 - Blank
-
-1 - Login
-
-2 - Start/Stop Server
-
-3 - Groups
-
-4 - Users
-
-5 - Warps
-
-6 - Kits
-
-7 - Backups
-
-8 - Administrator
-
-9 - Server Settings
+I will probably not push any code/content to this repo, and leave it as history.
